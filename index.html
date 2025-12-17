@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Samanu Abhinay | Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<!-- ===== NAVBAR ===== -->
+<!-- ===== THEME TOGGLE ===== -->
+<button id="themeToggle" class="theme-toggle">🌙</button>
+
+<header class="navbar">
+<h2 class="logo">Abhinay</h2>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+<a href="resume.pdf" download class="nav-resume-btn">
+  Resume
+</a>
+</nav>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section id="home" class="hero">
+<img src="profile.jpg" alt="Abhinay Profile Photo" class="profile-pic">
+<h1 class="typing">
+  <span id="typingText"></span>
+  <span class="cursor">|</span>
+</h1>
+<p>SAMMAU ABHINAY SAI KUMAR REDDY</p>
+<div class="resume-buttons">
+  <a href="resume.pdf" target="_blank" class="resume-btn view-btn">
+    👁 View Resume
+  </a>
+<a href="resume.pdf" download class="resume-btn download-btn">
+    ⬇ Download Resume
+  </a>
+</div>
+
+<p>B.Tech AI & Data Science | Aspiring Data Engineer</p>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section scroll-animate" id="about">
+<h2>About Me</h2>
+<p>
+I am a B.Tech graduate in Artificial Intelligence and Data Science.
+I enjoy building real-world applications using Python, Data Engineering
+tools, and modern web technologies.
+</p>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section class="section scroll-animate" id="education"
+<h2>Education</h2>
+<div class="card">
+<h3>B.Tech – Artificial Intelligence & Data Science</h3>
+<p>Graduated – 2024</p>
+</div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section class="section scroll-animate" id="skills">
+<h2>Skills</h2>
+<div class="skills-grid">
+<div class="skill-card"><span>Python</span><div class="progress"><div class="progress-bar" data-level="90"></div></div></div>
+<div class="skill-card"><span>SQL</span><div class="progress"><div class="progress-bar" data-level="85"></div></div></div>
+<div class="skill-card"><span>ADF</span><div class="progress"><div class="progress-bar" data-level="80"></div></div></div>
+<div class="skill-card"><span>Power BI</span><div class="progress"><div class="progress-bar" data-level="75"></div></div></div>
+<div class="skill-card"><span>HTML</span><div class="progress"><div class="progress-bar" data-level="80"></div></div></div>
+<div class="skill-card"><span>CSS</span><div class="progress"><div class="progress-bar" data-level="75"></div></div></div>
+<div class="skill-card"><span>Pyspark</span><div class="progress"><div class="progress-bar" data-level="65"></div></div></div>
+</div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section scroll-animate" id="projects">
+<h2>Projects</h2>
+<div class="projects-grid">
+
+<!-- PROJECT 1 -->
+<div class="project-card"
+     data-title="Deep Face Detection"
+     data-description="AI-based face detection system for commercial centers using deep learning."
+     data-image="images/face-detection.jpg">
+
+  <img src="images/face-detection.jpg" alt="Deep Face Detection">
+  <h3>Deep Face Detection</h3>
+  <p>AI-based face detection system.</p>
+</div>
+
+<!-- PROJECT 2 -->
+<div class="project-card"
+     data-title="Todo Web Application"
+     data-description="Task management app built using Flask, SQL, HTML, and CSS."
+     data-image="images/todo-app.jpg">
+
+  <img src="images/todo-app.jpg" alt="Todo App">
+  <h3>Todo Web Application</h3>
+  <p>Task management app.</p>
+</div>
+
+<!-- PROJECT 3 -->
+<div class="project-card"
+     data-title="Library Management System"
+     data-description="Database-driven library automation system for book issuing and tracking."
+     data-image="images/library.jpg">
+
+  <img src="images/library.jpg" alt="Library System">
+  <h3>Library Management System</h3>
+  <p>Library automation system.</p>
+</div>
+
+<!-- PROJECT 4 -->
+<div class="project-card"
+     data-title="Traffic Sign Detection"
+     data-description="Computer vision model to detect and classify traffic signs."
+     data-image="images/traffic-sign.jpg">
+
+  <img src="images/traffic-sign.jpg" alt="Traffic Sign Detection">
+  <h3>Traffic Sign Detection</h3>
+  <p>Traffic sign recognition model.</p>
+</div>
+
+<!-- PROJECT 5 -->
+<div class="project-card"
+     data-title="YouTube Playlist App"
+     data-description="Web app to manage and play YouTube playlists using API."
+     data-image="images/youtube-playlist.jpg">
+
+  <img src="images/youtube-playlist.jpg" alt="YouTube Playlist App">
+  <h3>YouTube Playlist App</h3>
+  <p>YouTube playlist manager.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section scroll-animate" id="contact"></section>
+<h2>Contact</h2>
+<p><strong>Phone:</strong> 9347837558</p>
+<p><strong>Email:</strong> abhinaysamanu30@gmail.com</p>
+<p><strong>City:</strong> Tirupati</p>
+</section>
+<section id="contact" class="contact-section">
+<h2>Contact Me</h2>
+
+
+<form id="contact-form">
+<input type="text" name="name" placeholder="Your Name" required />
+<input type="email" name="email" placeholder="Your Email" required />
+<textarea name="message" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+
+
+<p id="status"></p>
+</section>
+
+
+<!-- EmailJS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<footer class="footer">© 2025 Abhinay Portfolio</footer>
+
+<script src="script.js"></script>
+<script>
+
+// ===== TYPING + DELETING ANIMATION FOR NAME =====
+const texts = ["Samanu Abhinay Sai Kumar Reddy", "Aspiring Data Engineer", "AI & Data Science Graduate"];
+const typingElement = document.getElementById("typingName");
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+
+function typeEffect() {
+const currentText = texts[textIndex];
+
+
+if (!isDeleting) {
+typingElement.textContent = currentText.substring(0, charIndex + 1);
+charIndex++;
+
+if (charIndex === currentText.length) {
+setTimeout(() => isDeleting = true, 1200);
+}
+} else {
+typingElement.textContent = currentText.substring(0, charIndex - 1);
+charIndex--;
+
+if (charIndex === 0) {
+isDeleting = false;
+textIndex = (textIndex + 1) % texts.length;
+}
+}
+
+setTimeout(typeEffect, isDeleting ? 60 : 100);
+}
+
+document.addEventListener("DOMContentLoaded", typeEffect);
+
+// ===== SKILL BAR ANIMATION =====
+document.addEventListener("DOMContentLoaded",()=>{
+document.querySelectorAll('.progress-bar').forEach(bar=>{
+bar.style.width = bar.dataset.level + '%';
+});
+});
+
+<button type="submit" id="sendBtn">
+<span class="btn-text">Send Message</span>
+<span class="spinner"></span>
+</button>
