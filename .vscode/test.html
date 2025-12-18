@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings Test</title>
+
+  <style>
+    body {
+      height: 100vh;
+      font-family: Arial;
+    }
+
+    .settings-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .settings-panel {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 200px;
+      padding: 15px;
+      border: 1px solid #000;
+      background: #fff;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<button id="settingsBtn" class="settings-btn">⚙️</button>
+
+<div id="settingsPanel" class="settings-panel">
+  <h3>Settings</h3>
+  <p>Sound ON/OFF</p>
+</div>
+
+<script>
+  console.log("JS LOADED");
+
+  const settingsBtn = document.getElementById("settingsBtn");
+  const settingsPanel = document.getElementById("settingsPanel");
+
+  console.log(settingsBtn, settingsPanel);
+
+  settingsBtn.addEventListener("click", () => {
+    settingsPanel.style.display =
+      settingsPanel.style.display === "block" ? "none" : "block";
+  });
+</script>
+
+</body>
+</html>

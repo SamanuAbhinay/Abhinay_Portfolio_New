@@ -1,13 +1,24 @@
-// ===== DARK / LIGHT MODE TOGGLE =====
 const toggleBtn = document.getElementById("themeToggle");
+const sound = document.getElementById("toggleSound");
 
+// Load saved theme
+const savedTheme = localStorage.getItem("theme") || "light";
+document.body.className = savedTheme;
 
 toggleBtn.addEventListener("click", () => {
-document.body.classList.toggle("dark");
-document.body.classList.toggle("light");
-toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-});
+  // Play sound
+  sound.currentTime = 0;
+  sound.play();
 
+// Toggle theme
+  if (document.body.classList.contains("light")) {
+    document.body.className = "dark";
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.body.className = "light";
+    localStorage.setItem("theme", "light");
+  }
+});
 
 // ===== SKILL BAR ANIMATION =====
 document.addEventListener("DOMContentLoaded",()=>{
@@ -188,3 +199,83 @@ function typeEffect() {
 }
 
 document.addEventListener("DOMContentLoaded", typeEffect);
+
+const skillCards = document.querySelectorAll('.skill-card');
+
+const skillObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target.querySelector('.progress-bar');
+        const percent = entry.target.querySelector('.skill-percent');
+        const target = bar.dataset.level;
+
+        // Progress bar fill
+        bar.style.width = target + '%';
+
+        // Percentage counter animation
+        let count = 0;
+        const interval = setInterval(() => {
+          if (count >= target) {
+            clearInterval(interval);
+          } else {
+            count++;
+            percent.textContent = count + '%';
+          }
+        }, 15);
+
+        skillObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+skillCards.forEach(card => skillObserver.observe(card));
+
+const circularSkills = document.querySelectorAll('.circular-skill');
+
+const circleObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressCircle = entry.target.querySelector('.progress');
+        const percentText = entry.target.querySelector('.percent');
+        const target = progressCircle.dataset.percent;
+        const circumference = 2 * Math.PI * 45;
+
+        const offset = circumference - (target / 100) * circumference;
+        progressCircle.style.strokeDashoffset = offset;
+
+        // Counter animation
+        let count = 0;
+        const interval = setInterval(() => {
+          if (count >= target) {
+            clearInterval(interval);
+          } else {
+            count++;
+            percentText.textContent = count + '%';
+          }
+        }, 18);
+
+        circleObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.6 }
+);
+
+circularSkills.forEach(skill => circleObserver.observe(skill));
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const settingsBtn = document.getElementById("settingsBtn");
+  const settingsPanel = document.getElementById("settingsPanel");
+
+  if (settingsBtn && settingsPanel) {
+    settingsBtn.addEventListener("click", () => {
+      settingsPanel.classList.toggle("open");
+    });
+  }
+
+});
