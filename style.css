@@ -723,10 +723,22 @@ body.dark .settings-panel {
 }
 
 .settings-panel {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 220px;
+  padding: 15px;
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(20px);
   pointer-events: none;
   transition: all 0.3s ease;
+
+  z-index: 99999; /* 🔥 VERY IMPORTANT */
 }
 
 .settings-panel.open {
