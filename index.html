@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
 <title>Samanu Abhinay | Portfolio</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="light">
-<audio id="toggleSound" src="assets/sounds/click.mp3" preload="auto"></audio>
-<!-- SETTINGS BUTTON -->
-<button id="settingsBtn" class="settings-btn">⚙️</button>
 
-<div id="settingsPanel" class="settings-panel">
-  <h3>Settings</h3>
-  <p>Sound ON / OFF</p>
-</div>
+<!-- SETTINGS BUTTON -->
+<button id="settingsBtn" class="settings-btn float-animate">⚙️</button>
 
 <!-- SETTINGS PANEL -->
 <div id="settingsPanel" class="settings-panel">
@@ -30,8 +27,14 @@
 
 <!-- Audio -->
 <audio id="toggleSound" src="assets/sounds/click.mp3" preload="auto"></audio>
-</body>
 
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919347837558"
+   class="whatsapp-float float-animate"
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 
 <!-- ===== NAVBAR ===== -->
 <!-- Animated Theme Switch -->
@@ -59,7 +62,6 @@
 <section id="home" class="hero">
 <img src="profile.jpg" alt="Abhinay Profile Photo" class="profile-pic">
 <h1 class="typing">
-  <span id="typingText"></span>
   <span class="cursor">|</span>
 </h1>
 <p>SAMMAU ABHINAY SAI KUMAR REDDY</p>
@@ -169,79 +171,41 @@ I am a B.Tech graduate in Artificial Intelligence and Data Science with a strong
 </section>
 
 <!-- ===== CONTACT ===== -->
-<section class="section scroll-animate" id="contact"></section>
-<h2>Contact</h2>
-<p><strong>Phone:</strong> 9347837558</p>
-<p><strong>Email:</strong> abhinaysamanu30@gmail.com</p>
-<p><strong>City:</strong> Tirupati</p>
-</section>
-<section id="contact" class="contact-section">
-<h2>Contact Me</h2>
+<section id="contact" class="contact-section scroll-animate">
 
+  <h2>Contact Me</h2>
 
-<form id="contact-form">
-<input type="text" name="name" placeholder="Your Name" required />
-<input type="email" name="email" placeholder="Your Email" required />
-<textarea name="message" placeholder="Your Message" required></textarea>
-<button type="submit">Send Message</button>
-</form>
+  <div class="contact-info">
+    <p><strong>Phone:</strong> 9347837558</p>
+    <p><strong>Email:</strong> abhinaysamanu30@gmail.com</p>
+    <p><strong>City:</strong> Tirupati</p>
+  </div>
 
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
 
-<p id="status"></p>
+    <button type="submit" id="sendBtn">
+      <span class="btn-text">Send Message</span>
+      <span class="spinner"></span>
+    </button>
+  </form>
+
+  <p id="status"></p>
+
 </section>
 
 
 <!-- EmailJS CDN -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
+...
 <footer class="footer">© 2025 Abhinay Portfolio</footer>
 
 <script src="script.js"></script>
 <script>
+  // JS code here
+</script>
 
-// ===== TYPING + DELETING ANIMATION FOR NAME =====
-const texts = ["Samanu Abhinay Sai Kumar Reddy", "Aspiring Data Engineer", "AI & Data Science Graduate"];
-const typingElement = document.getElementById("typingName");
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-
-function typeEffect() {
-const currentText = texts[textIndex];
-
-
-if (!isDeleting) {
-typingElement.textContent = currentText.substring(0, charIndex + 1);
-charIndex++;
-
-if (charIndex === currentText.length) {
-setTimeout(() => isDeleting = true, 1200);
-}
-} else {
-typingElement.textContent = currentText.substring(0, charIndex - 1);
-charIndex--;
-
-if (charIndex === 0) {
-isDeleting = false;
-textIndex = (textIndex + 1) % texts.length;
-}
-}
-
-setTimeout(typeEffect, isDeleting ? 60 : 100);
-}
-
-document.addEventListener("DOMContentLoaded", typeEffect);
-
-// ===== SKILL BAR ANIMATION =====
-// ==== New Change=====
-document.addEventListener("DOMContentLoaded",()=>{
-document.querySelectorAll('.progress-bar').forEach(bar=>{
-bar.style.width = bar.dataset.level + '%';
-});
-});
-
-<button type="submit" id="sendBtn">
-<span class="btn-text">Send Message</span>
-<span class="spinner"></span>
-</button>
+</body>
+</html>

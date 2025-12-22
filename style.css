@@ -225,6 +225,28 @@ body.dark .project-card {
 /* =========================
    RESUME BUTTON (HERO)
 ========================= */
+.theme-toggle {
+  position: absolute;
+  top: 70px;              /* push it below navbar */
+  right: 50px;            /* align under Resume button */
+  
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  
+  background: linear-gradient(135deg, #6a5cff, #4dd0e1);
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
 .resume-btn {
   display: inline-block;
   margin-top: 20px;
@@ -254,6 +276,9 @@ body.dark .project-card {
   color: white;
   text-decoration: none;
   font-weight: 600;
+}
+.navbar {
+  position: relative;
 }
 
 /* =========================
@@ -300,38 +325,51 @@ body.dark .project-card {
 }
 
 .contact-section {
-padding: 60px 20px;
-max-width: 500px;
-margin: auto;
-text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
 }
 
+.contact-info {
+  margin-bottom: 25px;
+}
+
+#contact-form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
 #contact-form input,
 #contact-form textarea {
-width: 100%;
-padding: 12px;
-margin: 10px 0;
-border-radius: 8px;
-border: 1px solid #ccc;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
 }
-
 
 #contact-form button {
-background: linear-gradient(135deg, #6a11cb, #2575fc);
-color: white;
-padding: 12px 25px;
-border: none;
-border-radius: 30px;
-cursor: pointer;
-font-size: 16px;
+  align-self: center;
+  padding: 12px 28px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #6a5cff, #4dd0e1);
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
-
 
 #contact-form button:hover {
-opacity: 0.9;
+  transform: translateY(-3px);
 }
-
 
 #status {
 margin-top: 15px;
@@ -581,14 +619,25 @@ body.dark .theme-btn {
 }
 
 .theme-toggle:hover {
-  transform: scale(1.08);
+  transform: translateY(6px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
 }
 
 /* ICONS */
 .theme-toggle .icon {
   position: absolute;
-  font-size: 22px;
-  transition: all 0.6s ease;
+  font-size: 20px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+body.light .moon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+body.dark .sun {
+  opacity: 0;
+  transform: scale(0.5);
 }
 
 /* DEFAULT (LIGHT MODE) */
@@ -631,16 +680,12 @@ body.dark {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  font-size: 22px;
-  border: none;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  font-size: 22px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px);
   z-index: 1000;
-  transition: transform 0.3s ease;
 }
 
 .settings-btn:hover {
@@ -745,4 +790,65 @@ body.dark .settings-panel {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 90px;          /* ⬅ move above settings */
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: #fff;
+  font-size: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  z-index: 998;          /* below settings panel */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.whatsapp-float.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+.whatsapp-float i {
+  font-size: 32px;
+  color: white;
+}
+
+.whatsapp-float::after {
+  content: "Chat on WhatsApp";
+  position: absolute;
+  right: 70px;
+  background: #25d366;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.whatsapp-float:hover::after {
+  opacity: 1;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-float {
+  animation: pulse 2s infinite;
 }

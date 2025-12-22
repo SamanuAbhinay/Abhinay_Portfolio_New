@@ -272,12 +272,32 @@ document.getElementById("settingsPanel").classList.toggle("open")
 document.addEventListener("DOMContentLoaded", () => {
   const settingsBtn = document.getElementById("settingsBtn");
   const settingsPanel = document.getElementById("settingsPanel");
+  const whatsappBtn = document.querySelector(".whatsapp-float");
 
   settingsBtn.addEventListener("click", () => {
     settingsPanel.classList.toggle("open");
+      whatsappBtn.classList.toggle("hide");
+
   });
 });
 
 document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("dark");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const floatBtns = document.querySelectorAll(".float-animate");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  floatBtns.forEach(btn => observer.observe(btn));
 });
